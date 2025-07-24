@@ -1,0 +1,68 @@
+Blade componentes são algo parecido com os components do react 
+existem, components inline e class based, e podem ser chamdos também
+de class components e anonimous components.
+
+criando um component 
+  php artisan make:component MyComponent
+
+duas pastas serão afetadas 
+1 - app\view vai sergerado o MyComponent.php nela que éo arquivo da classe que tem os construtores e metodos
+2 - resources\views vai ser gerada uma pasta components e dentro dela vai estar o my-component.blade.php que é so a view dele 
+ 
+estrutura da classe do component
+----------------------------------------------------------- 
+<?php
+
+namespace App\View\Components;
+
+use Closure;
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
+class MyComponent extends Component
+{
+    /**
+     * Create a new component instance.
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     */
+    public function render(): View|Closure|string
+    {
+        return view('components.my-component');
+    }
+}
+-----------------------------------------------------------------------------------
+
+Estrutura da view 
+-------------------------------------------------------------------------------
+<h1 class="text-info"> Esse é o conteudo do componente </h1>
+--------------------------------------------------------------------------
+
+Como mostrar ele na home no caso abaixo eu tenho 2 componentes.
+
+--------------------------------------------------------------------
+
+@extends('layouts.main_layout')
+@section('content')
+    <h3>Conteudo da view</h3>
+
+    {{-- Renderizando um component
+         o componet parecer uma tag html 
+         a letra x é obrigatória para o laravel 
+         saber que se trata de um component 
+    --}}
+
+
+    <x-my-component />
+
+    {{-- rederizando componente em uma subpasta --}}
+    <x-admin.admin-card />
+@endsection
+-----------------------------------------------------------------
+

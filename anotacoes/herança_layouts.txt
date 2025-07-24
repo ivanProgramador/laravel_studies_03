@@ -1,0 +1,57 @@
+Usar herança de layout é mais prático doque ter que importar as bibliotecas em cada pagina da aplicação
+o layout herdado se comporta como um componente que pode ser encixado na apgina cvomo uma peça de lego.
+No exemplo de layout abaixo que sreia o main ele importa o bosststrap o bundle.
+E todos esses dados ficam dentro da varivbel content "@yield('content') "  que é criada dentro da diretiva
+"@yield" e dessa forma eu posso trabsfeiri ela pra qualquer outro layout.
+
+------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{--Bootstrap --}}
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/bootstrap.min.css') }}">
+    <title>@yield('page_title')</title>
+</head>
+<body>
+
+    @include('layouts.navbar')
+     
+    @yield('content')
+
+   <script src="{{ asset('assets/bootstrap/bootstrap.bundle.min') }}"></script> 
+</body>
+</html>
+-------------------------------------------------------------------------------------------
+
+forma de usar, essa pé a minha view home a unica parte dela e um paragrafo com uma frase
+todo o resto que parrecer foi importado do layout main, mas tem que ter cuidado com o titulo 
+da pagina quando mudarmos de pagina cada pagina deve ter o seu dependendo da plicação 
+então eu uso uma varivel da section chamada page_title que eu mesmo dei nome a ela e no segundo
+parametro eu informo qualç é o titulo que deseja que pagina tenha.         
+
+@section('page_title','home page')
+
+--------------------------------------------------------------
+
+
+{{-- importando o layout e todas as suas variveis para dentro dessa sub view --}}
+@extends('layouts.main_layout')
+
+{{-- nomeando a variavel oage_title com o titulo dessa pagina  --}}
+@section('page_title','home page')
+
+{{-- trazendo o conteudo do layou principal para dentro dessa sub view  --}}
+
+@section('content')
+
+     {{-- Tudo oque a sub view for apresentar deve ficar aqui dentro  --}}
+     
+      <p>Conteudo da minha view</p>    
+@endsection
+
+
+
+------------------------------------------------------------
