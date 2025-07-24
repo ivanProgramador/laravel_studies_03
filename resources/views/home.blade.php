@@ -1,16 +1,13 @@
 @extends('layouts.main_layout')
 @section('content')
-    <h3>Conteudo da view</h3>
+    <div class="text-center">
+         @foreach($pessoas_linguas as $pessoa => $linguas)
+            {{-- component  ---}}
 
-    {{-- Renderizando um component
-         o componet parecer uma tag html 
-         a letra x é obrigatória para o laravel 
-         saber que se trata de um component 
-    --}}
+            <x-card-pessoa :nome-pessoa="$pessoa" :linguas-pessoa="$linguas" />
+           
+         @endforeach
+    </div>
 
-
-    <x-my-component message="mensagem passada para o componente" />
-
-    {{-- rederizando componente em uma subpasta --}}
-    <x-admin.admin-card :name="$name" teste="Olá mundo" />
+   
 @endsection

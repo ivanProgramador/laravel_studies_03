@@ -1,0 +1,2 @@
+comandos 
+  php artisan make:component CardPessoa

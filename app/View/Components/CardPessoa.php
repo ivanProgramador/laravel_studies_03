@@ -1,19 +1,20 @@
 <?php
 
-namespace App\View\Components\admin;
+namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class adminCard extends Component
+class CardPessoa extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $name,
-        public string $teste
+         
+        public string $nomePessoa,
+        public array $linguasPessoa 
     )
     {
         //
@@ -24,6 +25,6 @@ class adminCard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.admin-card');
+        return view('components.card-pessoa');
     }
 }
