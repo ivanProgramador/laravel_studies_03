@@ -66,3 +66,65 @@ Como mostrar ele na home no caso abaixo eu tenho 2 componentes.
 @endsection
 -----------------------------------------------------------------
 
+Passando valores para um componente 
+
+1 - tem que ira na classe que foi crida junto com ele 
+    que fica no diretorio "app/View/components" 
+
+2 - chegando lá a classe tem um contrutor dentro dos prametros dele 
+    eu defini um string publica chamada $message
+
+     public string $message
+
+
+
+------------------------------------------------------------------
+class MyComponent extends Component
+{
+    /**
+     * Create a new component instance.
+     */
+    public function __construct(
+        public string $message
+    )
+    {
+        //
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     */
+    public function render(): View|Closure|string
+    {
+        return view('components.my-component');
+    }
+}
+-------------------------------------------------------------------------
+
+3 - para usar essa variável eu tenho que ir no componente blade que esta ligado 
+    ao componente e mostrar ela  
+----------------------------------------------------------------------------
+
+<h1 class="text-info"> Esse é o conteudo do componente </h1>
+
+<p>Valor damensagem passada apara o componente :{{ $message }}</p>
+
+------------------------------------------------------------------------------------
+
+4 - agora sim eu posso passar algum valor pra ela na home, no caso eu apssari uma mensagem,
+    que vai aparecer quando eu mostrar o componente   
+
+-------------------------------------------------------------------------------------
+
+ <x-my-component message="mensagem passada para dentro do componente" />
+
+----------------------------------------------------------------------------------
+
+
+Passando valores dinamicos para um componente, valores dinamicos devem ter sempre o ':' 
+no inicio 
+ 
+---------------------------------------------------------------------------
+<x-admin.admin-card :name="$name" teste="Olá mundo" />
+
+

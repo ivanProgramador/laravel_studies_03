@@ -9,8 +9,8 @@
     --}}
 
 
-    <x-my-component />
+    <x-my-component message="mensagem passada para o componente" />
 
     {{-- rederizando componente em uma subpasta --}}
-    <x-admin.admin-card />
+    <x-admin.admin-card :name="$name" teste="Olá mundo" />
 @endsection
