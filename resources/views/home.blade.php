@@ -1,13 +1,16 @@
 @extends('layouts.main_layout')
 @section('content')
-    <div class="text-center">
-         @foreach($pessoas_linguas as $pessoa => $linguas)
-            {{-- component  ---}}
+ 
 
-            <x-card-pessoa :$pessoa :$linguas/>
-           
-         @endforeach
-    </div>
 
-   
+
+<x-multi-slot>
+      <x-slot:title> Esse éo titulo do slot </x-slot:title>
+      <x-slot:content> Esse éo conteudo </x-slot:content>
+      <x-slot:footer> Esse éo footer </x-slot:footer>
+</x-multi-slot>
+ 
+
+
+
 @endsection

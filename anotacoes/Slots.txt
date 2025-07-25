@@ -1,0 +1,61 @@
+
+O slot serve para mostrar componentes filhos ou textos 
+que precisan ficar dentro de um certo componente  
+
+
+<div>
+   <h3>Esse é o texto inicial do componente </h3>
+   
+   {{-- mostrando o conteudo do slot com uma diretiva do blade 
+        sempre que um componente tem um slot dentro dele, ele vai tentar 
+        mostrar o slot então qualquer coisa que tiver dentro das tags de 
+        inicio / final da renderização do componente vai vir para dentro dessa
+        variavel e sera exibida   
+    --}}
+
+   {{ $slot }}
+
+
+   <h3>Esse é o texto final do componente </h3>
+
+</div>
+
+----------------------------------------------------------------
+passando um texto para o slot apartir da view home 
+
+-----------------------------------------------------------------
+<div>
+     <h4 class="text-info">Como funciona um Slot </h4>
+
+     <x-other-card>
+        <h2 class="text-danger">Esse é um Slot </h2>
+     </x-other-card>
+</div>
+
+------------------------------------------------------------------
+Caso eu precise passar mais dados ou componentes pelo slot
+
+na view 
+
+-------------------------------------------------------
+<x-multi-slot>
+      <x-slot:title> Esse éo titulo do slot </x-slot:title>
+      <x-slot:content> Esse éo conteudo </x-slot:content>
+      <x-slot:footer> Esse éo footer </x-slot:footer>
+</x-multi-slot>
+---------------------------------------------------------
+no componente 
+
+------------------------------------------------------
+
+<div>
+  
+    <h4>Componente com varios slots </h4>
+    <p>{{ $title }}</p>
+    <p>{{ $content }}</p>
+    <p>{{ $footer }}</p>
+</div>
+
+--------------------------------------------------
+
+

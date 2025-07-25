@@ -1,0 +1,21 @@
+O componetes possuem metdodos nativos para controlar seus estados 
+od dois metodos abaixo eu coloquei no componete cardPessoa 
+o primeiro tem um retodno boleano e como o nome já diz ele controla 
+a parte de renderização, se verdadeiro o componente aparece se falso 
+ele não aparece.    
+
+ public function shouldRender():bool
+    {
+        
+        return count($this->linguas) > 1;
+    }
+
+
+esse metodo controla a cor do componente aqui eu condiciono a acor ao nome 
+mas isso pode ser usando demuitas outras formas
+
+
+public function colorName():bool 
+    {
+       return $this->pessoa ==='João';
+    }

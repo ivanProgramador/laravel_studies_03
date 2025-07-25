@@ -27,4 +27,19 @@ class CardPessoa extends Component
     {
         return view('components.card-pessoa');
     }
+
+
+    //esse é um metodo netvo do componete que baseado em alguma condição 
+    //decide se ele será renderizado ou não 
+
+    public function shouldRender():bool
+    {
+        
+        return count($this->linguas) > 1;
+    }
+
+    public function colorName():bool 
+    {
+       return $this->pessoa ==='João';
+    }
 }

@@ -22,8 +22,6 @@ class MainController extends Controller
             ],
             'Ana'=>[
                 'Portugues',
-                'Inglês',
-                'Frances'
             ]
          ];
 
