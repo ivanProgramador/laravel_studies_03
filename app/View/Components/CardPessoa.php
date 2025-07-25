@@ -13,8 +13,8 @@ class CardPessoa extends Component
      */
     public function __construct(
          
-        public string $nomePessoa,
-        public array $linguasPessoa 
+        public string $pessoa,
+        public array $linguas 
     )
     {
         //

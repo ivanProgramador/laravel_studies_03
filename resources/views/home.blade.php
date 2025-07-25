@@ -4,7 +4,7 @@
          @foreach($pessoas_linguas as $pessoa => $linguas)
             {{-- component  ---}}
 
-            <x-card-pessoa :nome-pessoa="$pessoa" :linguas-pessoa="$linguas" />
+            <x-card-pessoa :$pessoa :$linguas/>
            
          @endforeach
     </div>

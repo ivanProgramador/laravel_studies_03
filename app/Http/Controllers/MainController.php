@@ -12,6 +12,7 @@ class MainController extends Controller
          
          $data=[
             'João'=>[
+
                 'Portugues',
                 'Inglês'
             ],
